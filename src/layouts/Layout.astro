@@ -1,22 +1,38 @@
+---
+import Navbar from "../components/Navbar.astro";
+
+const { title = "Armour Construction", description = "" } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+
+  <body class="font-sans bg-gray-50 text-gray-900">
+    <!-- Navigation bar component -->
+    <Navbar />
+
+    <!-- Page content -->
+    <main class="max-w-7xl mx-auto px-6 py-10">
+      <slot />
+    </main>
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<ul class="flex space-x-8 text-lg">
+  <li><a href="/" class="hover:text-blue-600">Home</a></li>
+  <li><a href="/about" class="hover:text-blue-600">About</a></li>
+  <li><a href="/services" class="hover:text-blue-600">Services</a></li>
+  <li><a href="/projects" class="hover:text-blue-600">Projects</a></li>
+  <li><a href="/contact" class="hover:text-blue-600">Contact</a></li>
+</ul>
+
+<!-- 🔥 PAGE CONTENT -->
+<main class="max-w-7xl mx-auto px-6 py-10">
+  <slot />
+</main>
